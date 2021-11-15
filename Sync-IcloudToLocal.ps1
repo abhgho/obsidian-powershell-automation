@@ -5,9 +5,10 @@ function Sync-ICloudToLocal {
         [Switch] $ICloudToLocal #By Default this script will transfer data from Local to ICloud
     )
 
+    $INCLUDE = @("*.md", "*.jepg", "*.jpg", "*.png", "*.svg")
     # Define Local and Icloud Path
-    $allICloudFiles = Get-ChildItem -Recurse -Include *.md -Exclude *MOC.md "C:\Users\abhik\iCloudDrive\iCloud~md~obsidian\obsidian sync"
-    $allLocalFiles = Get-ChildItem -Recurse -Include *.md -Exclude *MOC.md "C:\Users\abhik\Dropbox\Abhik\Documents\obsidian sync"
+    $allICloudFiles = Get-ChildItem -Recurse -Include $INCLUDE -Exclude *MOC.md "C:\Users\abhik\iCloudDrive\iCloud~md~obsidian\obsidian sync"
+    $allLocalFiles = Get-ChildItem -Recurse -Include $INCLUDE -Exclude *MOC.md "C:\Users\abhik\Dropbox\Abhik\Documents\obsidian sync"
 
     $allLocalFileNames = $allLocalFiles.Name
     $allICloudFileNames = $allICloudFiles.Name
